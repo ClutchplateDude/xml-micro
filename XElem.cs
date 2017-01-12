@@ -29,11 +29,14 @@ namespace MicroFramework.Xml
 
         public XElem Element(string elemName)
         {
-            foreach (XElem elem in this.Children)
+            if (this.HasChildren)
             {
-                if (elem.Name.Equals(elemName))
+                foreach (XElem elem in this.Children)
                 {
-                    return elem;
+                    if (elem.Name.Equals(elemName))
+                    {
+                        return elem;
+                    }
                 }
             }
 
@@ -43,11 +46,14 @@ namespace MicroFramework.Xml
         public XElemList Elements(string elemName)
         {
             var result = new XElemList();
-            foreach (XElem elem in this.Children)
+            if (this.HasChildren)
             {
-                if (elem.Name.Equals(elemName))
+                foreach (XElem elem in this.Children)
                 {
-                    result.Add(elem);
+                    if (elem.Name.Equals(elemName))
+                    {
+                        result.Add(elem);
+                    }
                 }
             }
 
