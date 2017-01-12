@@ -5,20 +5,21 @@ namespace MicroFramework.Xml
     public class XmlParser
     {
         private string inputString;
+        private int currPos = 0;
 
         public XmlParser(string input)
         {
             this.inputString = input;
+            this.currPos = 0;
         }
 
         public void ReadElement(ref XElem root)
         {
-            int currPos = 0;
             int posSpace = 0;
             int posNameEnd = 0;
             XElem node;
 
-            while (currPos >= this.inputString.Length)
+            while (currPos < this.inputString.Length)
             {
                 switch (this.inputString[currPos])
                 {
